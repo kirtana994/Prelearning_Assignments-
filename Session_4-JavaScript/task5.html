@@ -1,0 +1,74 @@
+<!-- Task 5: Write a program to print the Fibonacci series. Take the number of steps from the 
+input using HTML Input, and when you click on the Print button, using JS, print the 
+entered number of steps in the Fibonacci series on the HTML page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    p {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    </style>
+<body>
+    <h1>Fibonacci Series</h1>
+    <label for="steps">Enter the number of steps:</label>
+    <input type="number" id="steps" name="steps" min ="1" required>
+    <button onclick="printFibonacci(document.getElementById('steps').value)">
+        Print
+    </button>
+    <p id="fibonacciSeries"></p>
+
+    <script>
+        function printFibonacci(steps) {
+            let n1 = 0, n2 = 1, n3;
+            let fibonacciSeries = [];
+
+            for (let i = 0; i < steps; i++) {
+                fibonacciSeries.push(n1);
+                n3 = n1 + n2;
+                n1 = n2;
+                n2 = n3
+            }
+
+            document.getElementById("fibonacciSeries").innerHTML = "Fibonacci Series: " + fibonacciSeries.join(", ");
+        }
+    </script>
+</body>
+
+</html>
